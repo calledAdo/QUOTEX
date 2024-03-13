@@ -1,0 +1,40 @@
+type PriceFeed = 
+ service {
+   get_exchange_rate: (GetExchangeRateRequest) -> (ExchangeRate);
+   setApproval: (principal, bool) -> ();
+ };
+type GetExchangeRateRequest = 
+ record {
+   base_asset: Asset;
+   quote_asset: Asset;
+   timestamp: opt nat64;
+ };
+type ExchangeRateMetadata = 
+ record {
+   base_asset_num_queried_sources: nat64;
+   base_asset_num_received_rates: nat64;
+   decimals: nat32;
+   forex_timestamp: opt nat64;
+   quote_asset_num_queried_sources: nat64;
+   quote_asset_num_received_rates: nat64;
+   standard_deviation: nat64;
+ };
+type ExchangeRate = 
+ record {
+   base_asset: Asset;
+   metadata: ExchangeRateMetadata;
+   quote_asset: Asset;
+   rate: nat64;
+   timestamp: opt nat64;
+ };
+type AssetClass = 
+ variant {
+   Cryptocurrency;
+   FiatCurrency;
+ };
+type Asset = 
+ record {
+   class: AssetClass;
+   symbol: text;
+ };
+service : (principal) -> PriceFeed

@@ -1,0 +1,71 @@
+type Range = 
+ record {
+   max: nat64;
+   min: nat64;
+ };
+type Quote = 
+ record {
+   liq_provider_id: principal;
+   offer: nat64;
+   range: Range;
+   time_limit: int;
+ };
+type Position = 
+ record {
+   amount_in: nat;
+   asset_In: Asset;
+   asset_out: Asset;
+   collateral: nat64;
+   debt: nat64;
+   debt_pool: principal;
+   marginFee: nat64;
+   owner: principal;
+   timestamp: int;
+ };
+type OpenPositionParams = 
+ record {
+   base_asset_id: nat;
+   collateral_amount: nat64;
+   debt: nat64;
+   pool_id: nat;
+   quote_asset_id: nat;
+   quote_id: nat;
+ };
+type Main = 
+ service {
+   addAsset: (Asset__1) -> (nat);
+   addPool: (principal) -> (nat);
+   closePosition: (ClosePositionParams) -> ();
+   getAssetsList: () -> (vec Asset__1) query;
+   getPairPositions: (principal, principal) -> () query;
+   getPairQuotes: (principal, principal) -> (vec Quote) query;
+   getPools: () -> (vec principal) query;
+   getUserPositions: (principal) -> (vec Position) query;
+   openPosition: (OpenPositionParams) -> (Position);
+   setQuote: (principal, principal, nat, Quote) -> (nat);
+ };
+type ClosePositionParams = 
+ record {
+   base_asset: Asset;
+   position_id: nat;
+   quote_asset: Asset;
+   quote_id: nat;
+ };
+type Asset__1 = 
+ record {
+   class: AssetClass;
+   id: principal;
+   symbol: text;
+ };
+type AssetClass = 
+ variant {
+   Cryptocurrency;
+   FiatCurrency;
+ };
+type Asset = 
+ record {
+   class: AssetClass;
+   id: principal;
+   symbol: text;
+ };
+service : (principal) -> Main

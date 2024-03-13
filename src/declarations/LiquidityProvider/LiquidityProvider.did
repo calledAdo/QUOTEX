@@ -1,0 +1,7 @@
+type LiquidityProvider = 
+ service {
+   approveLiquidity: (principal, nat) -> ();
+   getAdmin: () -> (principal) query;
+   sendOut: (principal, principal, nat) -> (nat);
+ };
+service : (principal, principal) -> LiquidityProvider

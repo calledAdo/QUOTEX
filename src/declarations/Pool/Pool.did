@@ -1,0 +1,17 @@
+type TokenDetails = 
+ record {
+   is_allowed: bool;
+   margin_fee: nat64;
+   max_debt: nat64;
+   min_collateral: nat64;
+ };
+type Pool = 
+ service {
+   approve: (principal, nat) -> ();
+   getTokenDetails: (principal) -> (TokenDetails) query;
+   isLiquidator: (principal) -> (bool);
+   sendOutICRC: (principal, principal, nat) -> (nat);
+   setOperator: (principal, bool) -> ();
+   setToken: (principal, TokenDetails) -> ();
+ };
+service : (principal, principal) -> Pool

@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  max-width: 90vw;
+  background-color: black;
+  background-image: url("https://a-static.besthdwallpaper.com/gray-and-black-3d-cubism-digital-art-wallpaper-2880x960-82664_104.jpg");
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  font-family: sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  color: whitesmoke;
+}
+
+.Landing_Page {
+  background-image: url("./assets/");
+}
+button {
+  font-weight: 600;
+}
+
+.drop {
+  width: 450px;
+}
+.slogan {
+  font-size: 1.7em;
+  margin-bottom: 0;
+}
+
+.twitter {
+  font-size: 0.4em;
+}
+
+.brand-cl {
+  color: rgb(235, 156, 9);
+}
+
+.brand-bg {
+  background-color: rgb(235, 156, 9);
+}
+.App-logo {
+  height: 14vmin;
+  pointer-events: none;
+  transform: scale(1);
+  animation: pulse 3s infinite;
+}
+
+.App-header {
+  height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.bd-black {
+  background-color: rgb(25, 25, 27);
+}
+.TradingViewWidget {
+  height: 500px;
+}
+
+.TradeImage {
+}
+.red {
+  color: red;
+}
+
+.green {
+  color: rgb(29, 105, 29);
+}
+.TradeComponent {
+  padding-left: 35px;
+}
+@media screen and (max-width: 500px) {
+  .TradingViewWidget {
+    height: 350px;
+  }
+
+  .TradeImage {
+    height: 100px;
+    width: 200px;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.97);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.97);
+    opacity: 0;
+  }
+}
